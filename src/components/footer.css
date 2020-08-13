@@ -10,6 +10,20 @@
     justify-content: space-between;
 }
 
-.footer__middle {
-    
+.footer__left {
+    flex: 0.3;
+}
+
+.footer__center {
+    flex: 0.4;
+    padding: 0 100px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.footer__right {
+    flex: 0.3;
 }
