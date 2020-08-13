@@ -9,6 +9,7 @@ import SongRow from './SongRow';
 
 function Body({ spotify }) {
     const [ {discover_weekly} ,dispatch ] = useDataLayerValue();
+    console.log(discover_weekly, discover_weekly)
 
     const playPlaylist = (id) => {
         spotify
@@ -59,8 +60,8 @@ function Body({ spotify }) {
                 />
                 <div className="body__infoText">
                     <strong>PLAYLIST</strong>
-                    <h2>Discover Weekly</h2>
-                    <p>{discover_weekly?.discription}</p>
+                    <h2>{discover_weekly?.name}</h2>
+                    <p>{discover_weekly?.discription ? discover_weekly.description : "..." }</p>
                 </div>
             </div>
             <div className="body__songs">

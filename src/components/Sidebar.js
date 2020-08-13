@@ -8,8 +8,19 @@ import { useDataLayerValue } from '../DataLayer';
 import { getTokenFromResponse } from "../spotify";
 
 
-function Sidebar() {
+function Sidebar({ spotify }) {
     const [ {playlists} , dispatch ] = useDataLayerValue();
+    console.log(playlists);
+
+
+    const changePlaylist = (id) => {
+        spotify.getPlaylist(id).then(response => {
+            dispatch({
+                type: "SET_DISCOVER_WEEKLY",
+                discover_weekly: response,
+            })
+        })
+    };
 
     return (
         <div className="sidebar">
@@ -28,7 +39,7 @@ function Sidebar() {
             <hr />
 
             {playlists?.items?.map((playlist) => (
-                <SidebarOption title={playlist.name} />
+                <SidebarOption changePlaylist={changePlaylist} id={playlist.id} title={playlist.name} />
             ))}
         </div>
     )
